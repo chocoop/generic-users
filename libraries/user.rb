@@ -21,8 +21,8 @@
 #
 
 require 'chef/mash'
-require 'chef/dsl/dataquery'
-require 'chef/dsl/platformintrospection'
+require 'chef/dsl/data_query'
+require 'chef/dsl/platform_introspection'
 
 
 class GenericUsers
