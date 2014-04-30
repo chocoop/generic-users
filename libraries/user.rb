@@ -21,7 +21,9 @@
 #
 
 require 'chef/mash'
-require 'chef/mixin/language'
+require 'chef/dsl/dataquery'
+require 'chef/dsl/platformintrospection'
+
 
 class GenericUsers
 
