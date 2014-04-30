@@ -101,8 +101,8 @@ class GenericUsers
     end
 
     class << self
-      include Chef::Mixin::Language
-
+    include Chef::DSL::DataQuery
+    include Chef::DSL::PlatformIntrospection  
       # Get user by ID
       def get(user_id)
         User.new(data_bag_item("users", user_id))
@@ -129,7 +129,8 @@ class GenericUsers
   end
 
   class << self
-    include Chef::Mixin::Language
+    include Chef::DSL::DataQuery
+    include Chef::DSL::PlatformIntrospection    
 
     # Get group
     # 
