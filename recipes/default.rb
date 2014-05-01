@@ -27,8 +27,10 @@
 active_groups =
   Array(node[:users][:active_groups] || node[:active_groups]) | Array(node[:users][:supergroup])
 
+puts active_groups
+
 log "Active groups: #{active_groups.join(', ')}" do
-  level :info
+  level :debug
 end
 
 groups_q = active_groups.map{|g| "groups:#{g}"}.join(' OR ')
