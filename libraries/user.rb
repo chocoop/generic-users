@@ -21,9 +21,10 @@
 #
 
 require 'chef/mash'
+require 'chef'
+require 'chef/dsl'
 require 'chef/dsl/data_query'
 require 'chef/dsl/platform_introspection'
-
 
 class GenericUsers
 
@@ -101,8 +102,9 @@ class GenericUsers
     end
 
     class << self
-    include Chef::DSL::DataQuery
-    include Chef::DSL::PlatformIntrospection  
+      include Chef::DSL::DataQuery
+      include Chef::DSL::PlatformIntrospection  
+      
       # Get user by ID
       def get(user_id)
         User.new(data_bag_item("users", user_id))

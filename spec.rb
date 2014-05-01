@@ -1,5 +1,6 @@
 require 'chef/mash'
 require 'mocha'
+require "minitest/mock"
 
 require './libraries/user.rb'
 
