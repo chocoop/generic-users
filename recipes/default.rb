@@ -34,6 +34,8 @@ end
 groups_q = active_groups.map{|g| "groups:#{g}"}.join(' OR ')
 active_users = GenericUsers::User::search("( #{groups_q} ) AND -shell:false")
 
+puts active_users
+
 managed_groups = Hash[
   active_users.
   inject([]) { |r, u| r|u[:groups] }.       # list of all groups any user belongs to
