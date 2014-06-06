@@ -56,7 +56,13 @@ end
 
 allowed_openids = []
 active_users.each do |u|
-  home_dir = "/home/#{u[:username]}"
+  
+  if u['home_dir'] != nil
+    home_dir = u['home_dir']
+  else
+    home_dir = "/home/#{u[:username]}"
+  end
+
 
   if u['removed']
     user u[:username] do
