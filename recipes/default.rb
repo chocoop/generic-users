@@ -55,14 +55,12 @@ ruby_block "reset group list" do
 end
 
 allowed_openids = []
-active_users.each do |u|
-  
-  if u['home_dir'] != nil
-    home_dir = u['home_dir']
-  else
-    home_dir = "/home/#{u[:username]}"
-  end
+active_users.each do |u|  
+  home_dir = "/home/#{u[:username]}"
 
+  if u[:nfs_home] == true
+    home_dir = "/user/#{u[:username]}"
+  end
 
   if u['removed']
     user u[:username] do
